@@ -37,6 +37,28 @@ Clients should only ever talk to the gateway (`:3000`). The direct ports
 (`:3001`, `:3002`) are for local development/debugging and internal
 service-to-service calls.
 
+## Environment Configuration
+
+Each service requires its own environment variables. Template files are provided as `.env.example` files inside each service directory.
+
+Before running the application, create a `.env` file for each service using the corresponding template:
+
+```bash
+# API Gateway
+cp api-gateway/.env.example api-gateway/.env
+
+# Auth Service
+cp auth-service/.env.example auth-service/.env
+
+# User Service
+cp user-service/.env.example user-service/.env
+```
+
+On Windows, you can also manually copy each `.env.example` file and rename the copy to `.env`.
+
+After creating the `.env` files, update the required values, especially secrets such as `JWT_SECRET` and `INTERNAL_API_KEY`.
+
+
 ## Running locally
 
 Each service is independent — install and run them separately (three
