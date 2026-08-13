@@ -107,8 +107,5 @@ the gateway and auth-service both depend on user-service being reachable.
 - `INTERNAL_API_KEY` must match between `user-service` and `auth-service`.
 - `JWT_SECRET` in `auth-service` should be a long random string in
   production — swap it in your `.env`.
-- The gateway currently does no auth checking of its own; routes like
-  `GET /api/users` are open. If you want the gateway to require a valid
-  JWT before proxying to `user-service`, that's a natural next step
-  (verify the token at the gateway, or keep it in each service).
+- `JWT_SECRET` must match between `user-service` and `auth-service`.
 - No Docker Compose yet — each service is just a plain Node app for now.
